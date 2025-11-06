@@ -7,17 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>381</width>
-    <height>430</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>381</width>
-    <height>430</height>
+    <height>450</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>简易按键触发器</string>
+   <string>EasyKeyTrigger v0.0.1</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QComboBox" name="comboBox">
@@ -104,7 +104,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>330</y>
+      <y>310</y>
       <width>69</width>
       <height>19</height>
      </rect>
@@ -116,8 +116,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>330</y>
+      <x>90</x>
+      <y>310</y>
       <width>81</width>
       <height>19</height>
      </rect>
@@ -132,8 +132,8 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>390</y>
+      <x>20</x>
+      <y>340</y>
       <width>161</width>
       <height>20</height>
      </rect>
@@ -190,6 +190,35 @@
      <string>开启随机时间模式</string>
     </property>
     <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>420</y>
+      <width>69</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>项目地址:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>420</y>
+      <width>241</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/InsistonTan/EasyKeyTrigger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0078d4;&quot;&gt;InsistonTan/EasyKeyTrigger&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="openExternalLinks">
      <bool>true</bool>
     </property>
    </widget>
