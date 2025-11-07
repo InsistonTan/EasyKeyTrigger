@@ -30,3 +30,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 # 设置生成的.exe文件名称
 TARGET = EasyKeyTrigger
+
+# 软件图标设置
+RC_FILE = appicon.rc
