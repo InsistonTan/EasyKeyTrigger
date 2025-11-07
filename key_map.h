@@ -3,6 +3,7 @@
 
 #include<QMap>
 
+// 键盘按键对应硬件扫描码map
 const static QMap<QString, short> VK_MAP = {
     // 下面是键盘的硬件扫描码
     {"Esc",0x01},
@@ -123,5 +124,11 @@ const static QMap<QString, short> VK_MAP = {
     {"Windows",0xDF}
 };
 
+// 快捷启停键map
+const static QMap<QString, short> HOT_KEY_MAP = {
+    {"鼠标右键", 1},
+    {"鼠标侧键1(后退)", 2},
+    {"鼠标侧键2(前进)", 3},
+};
 
 #endif // KEY_MAP_H

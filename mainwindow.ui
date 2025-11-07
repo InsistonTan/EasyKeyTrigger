@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>381</width>
-    <height>450</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>381</width>
-    <height>450</height>
+    <height>500</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -55,7 +55,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>键盘按键:</string>
+     <string>目标键盘按键:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -88,7 +88,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>370</y>
+      <y>420</y>
       <width>101</width>
       <height>41</height>
      </rect>
@@ -104,7 +104,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>310</y>
+      <y>380</y>
       <width>69</width>
       <height>19</height>
      </rect>
@@ -117,7 +117,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>310</y>
+      <y>380</y>
       <width>81</width>
       <height>19</height>
      </rect>
@@ -127,25 +127,6 @@
     </property>
     <property name="text">
      <string>已停止</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>340</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>9</pointsize>
-      <underline>false</underline>
-     </font>
-    </property>
-    <property name="text">
-     <string>tips: 鼠标右键快捷启停</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
@@ -178,7 +159,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>260</y>
+      <y>340</y>
       <width>341</width>
       <height>23</height>
      </rect>
@@ -197,7 +178,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>420</y>
+      <y>470</y>
       <width>69</width>
       <height>19</height>
      </rect>
@@ -210,7 +191,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>420</y>
+      <y>470</y>
       <width>241</width>
       <height>19</height>
      </rect>
@@ -220,6 +201,44 @@
     </property>
     <property name="openExternalLinks">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>260</y>
+      <width>331</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>启动/停止快捷键:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>280</y>
+      <width>341</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1000000</width>
+      <height>1000000</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">padding-left: 12px;</string>
     </property>
    </widget>
   </widget>

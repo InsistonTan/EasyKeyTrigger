@@ -12,20 +12,38 @@
 static HHOOK g_mouseHook = nullptr;
 MainWindow* mainWindow = nullptr;
 
+// 选择的启停热键
+short selectedHotKey = -1;
+
+
 // 低级鼠标钩子过程函数
 LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (nCode >= 0) {
-        // 判断是否为鼠标右键按下事件[citation:1]
-        if (wParam == WM_RBUTTONDOWN) {
-            // 可以在这里直接执行你的逻辑
-            qDebug() << "全局鼠标右键被按下！";
-
-            // 注意：由于此回调在系统消息线程中，直接进行Qt GUI操作可能不安全。
-            // 更稳妥的做法是发送一个信号（例如，通过一个单例类）到主线程处理。
+        // 鼠标右键按下事件
+        if (selectedHotKey == 1 && wParam == WM_RBUTTONDOWN) {
             // 使用Qt的信号机制确保在主线程中执行
             QMetaObject::invokeMethod(mainWindow, []() {
                 mainWindow->startOrStop();
             }, Qt::QueuedConnection);
+
+        }else if (wParam == WM_XBUTTONDOWN) {
+            MSLLHOOKSTRUCT* mouseStruct = (MSLLHOOKSTRUCT*)lParam;
+
+            // 使用更兼容的方法检测侧键
+            UINT xbutton = HIWORD(mouseStruct->mouseData);
+
+            // 第一个侧键（通常为后退按钮）
+            if (selectedHotKey == 2 && (xbutton == XBUTTON1)) {
+                QMetaObject::invokeMethod(mainWindow, []() {
+                    mainWindow->startOrStop();
+                }, Qt::QueuedConnection);
+            }
+            // 第二个侧键（通常为前进按钮）
+            else if (selectedHotKey == 3 && (xbutton == XBUTTON2)) {
+                QMetaObject::invokeMethod(mainWindow, []() {
+                    mainWindow->startOrStop();
+                }, Qt::QueuedConnection);
+            }
         }
     }
     // 将事件传递给下一个钩子或系统
@@ -47,6 +65,16 @@ MainWindow::MainWindow(QWidget *parent)
     // 默认按键
     ui->comboBox->setCurrentText("E");
     ui->comboBox->installEventFilter(this);
+
+
+    // 添加快捷启停键到下拉框
+    for (auto it = HOT_KEY_MAP.begin(); it != HOT_KEY_MAP.end(); ++it) {
+        ui->comboBox_2->addItem(it.key());
+    }
+    // 默认启停键
+    ui->comboBox_2->setCurrentText(DEFAULT_HOT_KEY);
+    selectedHotKey = HOT_KEY_MAP[DEFAULT_HOT_KEY];
+    ui->comboBox_2->installEventFilter(this);
 
 
     // 安装低级鼠标钩子[citation:1]
@@ -171,7 +199,7 @@ void MainWindow::on_pushButton_clicked()
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event){
     // 1. 检查事件来源是否为我们的comboBox且事件类型为键盘按下
-    if (obj == ui->comboBox && event->type() == QEvent::KeyPress) {
+    if ((obj == ui->comboBox || obj == ui->comboBox_2) && event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 
         // 拦截所有普通按键
@@ -215,7 +243,8 @@ void MainWindow::simulateKeyPress(short scanCode, bool isKeyRelease) {
 }
 
 
-
-
-
+void MainWindow::on_comboBox_2_currentTextChanged(const QString &arg1)
+{
+    selectedHotKey = HOT_KEY_MAP[arg1];
+}
 

@@ -5,6 +5,8 @@
 #include<QMutex>
 #include<QMouseEvent>
 
+#define DEFAULT_HOT_KEY "鼠标侧键1(后退)"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -23,6 +25,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_comboBox_2_currentTextChanged(const QString &arg1);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
